@@ -4,7 +4,7 @@
  * */
 function chunk(arr, size) {
     // Пустой массив для хранения подмассивов
-    const result = [];
+    let result = [];
 
     // Перебор элементов входного массива
     for (let i = 0; i < arr.length; i += size) {

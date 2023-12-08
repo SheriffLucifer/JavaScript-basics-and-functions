@@ -5,5 +5,22 @@
  * @return {number[]} - массив, содержащий только элементы, которые есть в обоих массивах
  */
 function intersect(arr1, arr2) {
-    // ваш код здесь
+    const result = [];
+
+    // Перебор элементов первого массива
+    for (let i = 0; i < arr1.length; i++) {
+        let currentElement = arr1[i];
+
+        // Проверка, присутствует ли текущий элемент во втором массиве
+        if (arr2.includes(currentElement)) {
+            result.push(currentElement);
+        }
+    }
+
+    return result;
 }
+
+arr1 = [1, 2, 3, 4];
+arr2 = [3, 4, 5, 6];
+
+console.log(intersect(arr1, arr2));

@@ -7,24 +7,24 @@
  * */
 function groupBy(arr, key) {
     // Инициализация пустого объекта для группировки
-    const grouped = {};
+    let group = {};
 
     // Перебор элементов массива
     arr.forEach((item) => {
         // Получение значения свойства key
-        const keyValue = item[key];
+        let keyValue = item[key];
 
         // Если ключа в объекте ещё нет, создаем его и устанавливаем значение в виде массива
-        if (!grouped[keyValue]) {
-            grouped[keyValue] = [item];
+        if (!group[keyValue]) {
+            group[keyValue] = [item];
         } else {
             // Если ключ уже существует, добавляем текущий элемент в массив значений
-            grouped[keyValue].push(item);
+            group[keyValue].push(item);
         }
     });
 
     // Возвращаем объект, содержащий группированные элементы
-    return grouped;
+    return group;
 }
 
 console.log(

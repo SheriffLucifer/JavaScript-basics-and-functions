@@ -5,5 +5,20 @@
  zip([1, 2, 3], ['a', 'b', 'c']) должна вернуть [[1, 'a'], [2, 'b'], [3, 'c']].
  * */
 function zip(arr1, arr2) {
-    // Your code
+    const result = [];
+    // Находим минимальную длину массивов
+    let minLength = Math.min(arr1.length, arr2.length);
+
+    // Перебираем элементы обоих массивов до минимальной длины
+    for (let i = 0; i < minLength; i++) {
+        // Создаем пару из элементов с одинаковыми индексами
+        let pair = [arr1[i], arr2[i]];
+
+        // Добавляем пару в новый массив
+        result.push(pair);
+    }
+
+    return result;
 }
+
+console.log(zip([1, 2, 3], ["a", "b", "c"]));

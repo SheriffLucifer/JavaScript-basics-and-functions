@@ -5,6 +5,35 @@
  равно ключу. Например, groupBy([{id: 1, name: 'Alice'}, {id: 2, name: 'Bob'}, {id: 3, name: 'Alice'}], 'name') должна
  вернуть {Alice: [{id: 1, name: 'Alice'}, {id: 3, name: 'Alice'}], Bob: [{id: 2, name: 'Bob'}]}.
  * */
-function groupBy(arr) {
-    // Your code
+function groupBy(arr, key) {
+    // Инициализация пустого объекта для группировки
+    const grouped = {};
+
+    // Перебор элементов массива
+    arr.forEach((item) => {
+        // Получение значения свойства key
+        const keyValue = item[key];
+
+        // Если ключа в объекте ещё нет, создаем его и устанавливаем значение в виде массива
+        if (!grouped[keyValue]) {
+            grouped[keyValue] = [item];
+        } else {
+            // Если ключ уже существует, добавляем текущий элемент в массив значений
+            grouped[keyValue].push(item);
+        }
+    });
+
+    // Возвращаем объект, содержащий группированные элементы
+    return grouped;
 }
+
+console.log(
+    groupBy(
+        [
+            { id: 1, name: "Alice" },
+            { id: 2, name: "Bob" },
+            { id: 3, name: "Alice" },
+        ],
+        "name"
+    )
+);

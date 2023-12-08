@@ -28,5 +28,39 @@
  Если массив содержит только один элемент, то функция должна вернуть связный список из одного узла.
  */
 function createList(arr) {
-    // Your code
+    // Если массив пустой, возвращаем null
+    if (arr.length === 0) {
+        return null;
+    }
+
+    // Инициализация первого узла
+    let head = {
+        value: arr[0],
+        next: null,
+    };
+
+    // Ссылка на текущий узел
+    let current = head;
+
+    // Перебор элементов массива, начиная с индекса 1
+    for (let i = 1; i < arr.length; i++) {
+        // Создаем новый узел
+        const newNode = {
+            value: arr[i],
+            next: null,
+        };
+
+        // Устанавливаем ссылку на новый узел в свойство 'next' текущего узла
+        current.next = newNode;
+
+        // Перемещаем указатель на текущий узел на новый узел
+        current = newNode;
+    }
+
+    // Возвращаем готовый связный список
+    return head;
 }
+
+const array = [1, 2, 3, 4, 5];
+
+console.log(createList(array));

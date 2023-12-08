@@ -5,5 +5,24 @@
     Например, flatten([1, [2, 3], [4, [5, 6]]]) должна вернуть [1, 2, 3, 4, 5, 6].
 * */
 function flatten(arr) {
-    // Your code
+    const result = [];
+
+    // Перебор элементов входного массива
+    for (let i = 0; i < arr.length; i++) {
+        // Проверка, является ли текущий элемент массивом
+        if (Array.isArray(arr[i])) {
+            const flattenedSubarray = flatten(arr[i]);
+
+            // Добавляем все элементы вложенного массива в результат
+            result.push(...flattenedSubarray);
+        } else {
+            // Если текущий элемент не массив, просто добавляем его в результат
+            result.push(arr[i]);
+        }
+    }
+
+    // Возвращаем плоский массив
+    return result;
 }
+
+console.log(flatten([1, [2, 3], [4, [5, 6]]]));

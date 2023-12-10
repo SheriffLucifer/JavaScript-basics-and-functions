@@ -16,7 +16,23 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    let firstTeamPoints = 0;
+    let secondTeamPoints = 0;
+
+    for (let i = 0; i < points.length; i++) {
+        const [scoreTeam1, scoreTeam2] = points[i].split("-");
+
+        firstTeamPoints += parseInt(scoreTeam1, 10);
+        secondTeamPoints += parseInt(scoreTeam2, 10);
+    }
+
+    if (firstTeamPoints > secondTeamPoints) {
+        return 1;
+    } else if (firstTeamPoints < secondTeamPoints) {
+        return 2;
+    } else {
+        return undefined;
+    }
 }
 
 module.exports = getWinner;

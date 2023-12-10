@@ -13,7 +13,19 @@
  * @returns {number[]}
  */
 function union(a, b) {
-    return undefined;
+    const commonElements = [];
+
+    for (let i = 0; i < a.length; i++) {
+        if (b.includes(a[i])) {
+            if (!commonElements.includes(a[i])) {
+                commonElements.push(a[i]);
+            }
+        }
+    }
+
+    commonElements.sort((a, b) => a - b);
+
+    return commonElements;
 }
 
 module.exports = union;

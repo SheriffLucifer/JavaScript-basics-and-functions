@@ -21,6 +21,15 @@
  */
 function computeOrizurus(total) {
     return undefined;
+    // let boys, girl;
+    // if (total === 11) {
+    //     boys = total / 11;
+    //     girl = boys * 9;
+    // } else {
+    //     boys = total / 6;
+    //     girl = boys * 2;
+    // }
+    // return [Math.floor(boys), Math.floor(girl), Math.floor(boys)];
 }
 
 module.exports = computeOrizurus;

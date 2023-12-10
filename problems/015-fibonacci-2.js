@@ -14,7 +14,18 @@
  * @returns {undefined|number}
  */
 function isFibonacci(value) {
-    return undefined;
+    let a = 0;
+    let b = 1;
+    let index = 0;
+
+    while (a < value) {
+        const temp = a;
+        a = b;
+        b = temp + b;
+        index++;
+    }
+
+    return a === value ? index : undefined;
 }
 
 module.exports = isFibonacci;

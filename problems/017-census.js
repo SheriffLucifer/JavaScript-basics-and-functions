@@ -12,8 +12,21 @@
  * @param {{age: number, gender: string}[]} list
  * @returns {undefined|number}
  */
+
 function census(list) {
-    return -1;
+    let maxAge = -1;
+    let maxAgeIndex = undefined;
+
+    for (let i = 0; i < list.length; i++) {
+        const person = list[i];
+
+        if (person.gender === "Male" && person.age > maxAge) {
+            maxAge = person.age;
+            maxAgeIndex = i + 1;
+        }
+    }
+
+    return maxAgeIndex;
 }
 
 module.exports = census;

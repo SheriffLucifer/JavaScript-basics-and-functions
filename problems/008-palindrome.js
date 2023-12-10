@@ -13,7 +13,11 @@
  * @returns {boolean}
  */
 function isPalindrome(value) {
-    return undefined;
+    const lowerCaseValue = value.toLowerCase();
+
+    const reversedValue = lowerCaseValue.split("").reverse().join("");
+
+    return lowerCaseValue === reversedValue;
 }
 
 module.exports = isPalindrome;

@@ -15,8 +15,28 @@
  * @param {string} secret
  * @returns {string}
  */
+
 function decrypt(secret) {
-    return undefined;
+    let decryptedMessage = "";
+
+    for (let i = 0; i < secret.length; i++) {
+        if (secret[i] === " ") {
+            decryptedMessage += " ";
+            continue;
+        }
+
+        let charCode = secret.charCodeAt(i) + 1;
+
+        if (charCode > "z".charCodeAt(0)) {
+            charCode -= 26;
+        }
+
+        let decryptedChar = String.fromCharCode(charCode);
+
+        decryptedMessage += decryptedChar;
+    }
+
+    return decryptedMessage;
 }
 
 module.exports = decrypt;

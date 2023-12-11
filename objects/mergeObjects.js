@@ -5,11 +5,30 @@
  * @param {object} obj2 - второй объект
  * @return {object} - новый объект, содержащий все свойства обоих объектов
  */
+
 function mergeObjects(obj1, obj2) {
-    // ваш код здесь
+    let result = {};
+
+    // Копируем свойства из первого объекта
+    for (const prop in obj1) {
+        if (obj1.hasOwnProperty(prop)) {
+            result[prop] = obj1[prop];
+        }
+    }
+
+    // Копируем или добавляем свойства из второго объекта
+    for (const prop in obj2) {
+        if (obj2.hasOwnProperty(prop)) {
+            result[prop] = obj2[prop];
+        }
+    }
+
+    return result;
 }
 
 // Примеры:
-console.log(mergeObjects({a: 1, b: 2}, {c: 3, d: 4})); // {a: 1, b: 2, c: 3, d: 4}
-console.log(mergeObjects({x: "hello", y: "world"}, {y: "JavaScript", z: "rocks"})); // {x: "hello", y: "JavaScript", z: "rocks"}
-console.log(mergeObjects({foo: true, bar: false}, {foo: false, baz: true})); // {foo: false, bar: false, baz: true}
+console.log(mergeObjects({ a: 1, b: 2 }, { c: 3, d: 4 })); // {a: 1, b: 2, c: 3, d: 4}
+console.log(
+    mergeObjects({ x: "hello", y: "world" }, { y: "JavaScript", z: "rocks" })
+); // {x: "hello", y: "JavaScript", z: "rocks"}
+console.log(mergeObjects({ foo: true, bar: false }, { foo: false, baz: true })); // {foo: false, bar: false, baz: true}

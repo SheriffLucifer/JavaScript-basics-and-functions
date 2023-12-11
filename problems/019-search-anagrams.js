@@ -11,8 +11,11 @@
  * @param {string} value
  * @returns {string}
  */
+
 function searchAnagrams(value) {
     return undefined;
 }
+
+console.log(searchAnagrams("Вижу вижу"));
 
 module.exports = searchAnagrams;

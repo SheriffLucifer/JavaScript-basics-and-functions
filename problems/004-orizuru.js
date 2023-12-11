@@ -19,17 +19,23 @@
  * @returns {number[]} массив чисел, где первый элемент это количество журавликов сделанных Петей,
  * второй элемент – Катей, третий – Сережей
  */
+
 function computeOrizurus(total) {
-    return undefined;
-    // let boys, girl;
-    // if (total === 11) {
-    //     boys = total / 11;
-    //     girl = boys * 9;
-    // } else {
-    //     boys = total / 6;
-    //     girl = boys * 2;
-    // }
-    // return [Math.floor(boys), Math.floor(girl), Math.floor(boys)];
+    let sum = Math.ceil((total / 100) * 66);
+    let p, k, s;
+
+    if (total % 2) {
+        p = Math.round(sum / 4 - 1);
+        k = Math.round(sum + 1);
+        s = Math.round(sum / 4 - 1);
+    } else {
+        p = Math.floor(sum / 4);
+        k = Math.round(sum);
+        s = Math.floor(sum / 4);
+    }
+
+    // Создать и вернуть массив с вычисленными значениями
+    return [p, k, s];
 }
 
 module.exports = computeOrizurus;

@@ -5,12 +5,11 @@
  */
 
 function factorial(n) {
-    let number = 1;
-    while (n > 0) {
-        number = number * n;
-        n--;
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
     }
-    return number;
 }
 
 // Примеры:

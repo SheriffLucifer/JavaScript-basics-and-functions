@@ -3,8 +3,22 @@
  * @param {number} n - индекс числа Фибоначчи
  * @return {number} - число Фибоначчи с заданным индексом
  */
+
 function fibonacci(n) {
-    // ваш код здесь
+    if (n <= 1) {
+        return n;
+    }
+
+    let numberPrev = 0;
+    let number = 1;
+
+    for (let i = 2; i <= n; i++) {
+        const temp = number;
+        number = numberPrev + number;
+        numberPrev = temp;
+    }
+
+    return number;
 }
 
 // Примеры:

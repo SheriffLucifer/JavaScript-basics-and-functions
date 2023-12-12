@@ -13,35 +13,47 @@
  */
 
 function searchAnagrams(value) {
-    const words = value.split(/\s+/);
+    // Разбиваем входное значение на массив слов
+    let str = value.split(/\s+/).map(w => w.replace(/[^\wa-яА-Я]/g, ""));
 
-    function sortCharacters(word) {
-        return word.split("").sort().join("");
-    }
+    // Определяем функцию для сортировки символов в слове
+    const sortStr = word => word.toLowerCase().split("").sort().join("");
 
-    const sortedWords = words.map(word => sortCharacters(word.toLowerCase()));
-    const wordMap = new Map();
+    // Создаем объект для хранения отсортированных слов и анаграмм
+    const sortedStr = {};
+    const anagram = {};
 
-    sortedWords.forEach((sortedWord, index) => {
-        const originalWord = words[index];
-        if (!wordMap.has(sortedWord)) {
-            wordMap.set(sortedWord, [originalWord]);
-        } else {
-            const existingWords = wordMap.get(sortedWord);
-            if (!existingWords.includes(originalWord)) {
-                existingWords.push(originalWord);
-            }
-        }
+    // Отображаем каждое слово
+    str.map(w => {
+        sortedStr[w] = sortStr(w);
     });
 
-    const anagramGroups = Array.from(wordMap.values()).filter(
-        words => words.length > 1
+    // Находим анаграммы среди отсортированных слов
+    const anagrams = Object.values(sortedStr).filter(
+        (word, index, anagrams) => {
+            return anagrams.indexOf(word) !== index;
+        }
     );
-    const resultWords = anagramGroups.map(words => words.join(" "));
 
-    return resultWords.join(" ");
+    // Отфильтровываем слова без анаграмм
+    const withoutAnagrams = Object.values(sortedStr).filter(
+        word => !anagrams.includes(word)
+    );
+
+    // Заполняем объект анаграммами
+    for (let key in sortedStr) {
+        if (
+            sortedStr.hasOwnProperty(key) &&
+            !withoutAnagrams.includes(sortedStr[key])
+        ) {
+            anagram[key] = sortedStr[key];
+        }
+    }
+
+    // Преобразуем объект анаграмм в строку
+    const result = Object.keys(anagram).join(" ");
+
+    return result;
 }
-
-console.log(searchAnagrams("Вижу вижу"));
 
 module.exports = searchAnagrams;

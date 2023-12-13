@@ -4,10 +4,6 @@
  * @return {number[]} - массив, содержащий наименьшее и наибольшее число в массиве
  */
 function minMax(arr) {
-    if (!arr || arr.length === 0) {
-        return null; // Возвращаем null для пустого массива или отсутствия входных данных
-    }
-
     let min = arr[0];
     let max = arr[0];
 
@@ -26,6 +22,6 @@ function minMax(arr) {
     return [min, max];
 }
 
-let array = [4, 5, 8, 9, 6, 1, 2, 3, 10, 54, 99, 5567];
+let array = [4, 5, 8, 9, -55, 6, 1, 2, 3, 10, 54, 99, 5567];
 
 console.log(minMax(array));

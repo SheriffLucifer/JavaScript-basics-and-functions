@@ -13,6 +13,7 @@
  * @param {string} number
  * @returns {boolean}
  */
+
 function checkTicket(number) {
     const digits = number.split("").map(Number);
 

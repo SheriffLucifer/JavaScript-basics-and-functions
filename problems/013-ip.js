@@ -18,16 +18,21 @@
  * @param {string} address
  * @returns {boolean}
  */
+
 function isIpValid(address) {
     const parts = address.split(".");
 
+    // Проверяем, состоит ли IP-адрес из четырех частей.
     if (parts.length !== 4) {
+        // Если количество частей не равно 4, возвращаем false, так как это не является допустимым IP-адресом.
         return false;
     }
 
     for (const part of parts) {
+        // Преобразуем каждую часть в число.
         const num = parseInt(part, 10);
 
+        // Проверяем, является ли результат преобразования числом и находится ли в диапазоне от 0 до 255.
         if (isNaN(num) || num < 0 || num > 255) {
             return false;
         }

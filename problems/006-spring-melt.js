@@ -17,19 +17,26 @@
  * @param {number[]} temperature массив чисел, где каждое – среднесуточная температура в соответствующий день
  * @returns {number}
  */
+
 function getSpringMeltStreak(temperature) {
     let currentStreak = 0;
     let longestStreak = 0;
 
     for (let i = 0; i < temperature.length; i++) {
+        // Проверяем, является ли текущая температура положительной.
         if (temperature[i] > 0) {
+            // Если положительная, увеличиваем текущую положительную последовательность.
             currentStreak++;
         } else {
+            // Если температура не положительная:
+
+            // Обновляем самую длинную положительную последовательность, если текущая длина больше.
             longestStreak = Math.max(longestStreak, currentStreak);
+            // Сбрасываем текущую положительную последовательность.
             currentStreak = 0;
         }
     }
-
+    // Обновляем самую длинную положительную последовательность после завершения цикла.
     longestStreak = Math.max(longestStreak, currentStreak);
 
     return longestStreak;

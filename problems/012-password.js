@@ -17,15 +17,20 @@
  * @param {string} password
  * @returns {boolean}
  */
+
 function validatePassword(password) {
+    //Проверяем на кол-во символов в пароле, если меньше 7 возвращаем false
     if (password.length < 7) {
         return false;
     }
 
+    // Проверяем, содержит ли пароль хотя бы одну строчную букву.
     let hasLowerCase = /[a-z]/.test(password);
 
+    // Проверяем, содержит ли пароль хотя бы одну заглавную букву.
     let hasUpperCase = /[A-Z]/.test(password);
 
+    // Проверяем, содержит ли пароль хотя бы одну цифру.
     let hasDigit = /\d/.test(password);
 
     return hasLowerCase && hasUpperCase && hasDigit;

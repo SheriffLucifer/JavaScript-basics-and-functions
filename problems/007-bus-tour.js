@@ -11,6 +11,7 @@
  * @param {number[]} bridges высоты мостов встречающихся на маршруте
  * @returns {undefined|number}
  */
+
 function checkBusTour(bridges) {
     const busHeight = 512;
 

@@ -15,6 +15,7 @@
  * @param {string[]} points
  * @returns {(number|undefined)}
  */
+
 function getWinner(points) {
     let firstTeamPoints = 0;
     let secondTeamPoints = 0;

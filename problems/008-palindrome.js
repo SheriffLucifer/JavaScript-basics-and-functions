@@ -12,6 +12,7 @@
  * @param {string} value
  * @returns {boolean}
  */
+
 function isPalindrome(value) {
     const lowerCaseValue = value.toLowerCase();
 

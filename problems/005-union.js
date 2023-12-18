@@ -12,17 +12,24 @@
  * @param {number[]} b
  * @returns {number[]}
  */
+
 function union(a, b) {
     const commonElements = [];
 
     for (let i = 0; i < a.length; i++) {
+        // Проверяем, содержится ли текущий элемент массива a в массиве b.
         if (b.includes(a[i])) {
+            // Если элемент содержится в обоих массивах:
+
+            // Проверяем, был ли этот элемент уже добавлен в commonElements.
             if (!commonElements.includes(a[i])) {
+                // Если элемент не был добавлен, добавляем его в commonElements.
                 commonElements.push(a[i]);
             }
         }
     }
 
+    // Сортируем commonElements по возрастанию.
     commonElements.sort((a, b) => a - b);
 
     return commonElements;

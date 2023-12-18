@@ -20,13 +20,16 @@ function anagram(x, y) {
         return false;
     }
 
-    x = x.toString().toLowerCase();
-    y = y.toString().toLowerCase();
+    // Преобразование строк в нижний регистр для унификации сравнения.
+    x = x.toLowerCase();
+    y = y.toLowerCase();
 
+    // Проверка на равную длину строк.
     if (x.length !== y.length) {
         return false;
     }
 
+    // Сортировка символов в строках и их сравнение.
     const sortedX = Array.from(x).sort().join("");
     const sortedY = Array.from(y).sort().join("");
 

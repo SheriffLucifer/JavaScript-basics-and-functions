@@ -17,13 +17,16 @@
  * @returns {number} разница между x и y в секундах
  */
 function getTimeDelta(x, y) {
+    // Разбиваем строки времени на массивы [часы, минуты, секунды] и преобразуем каждый элемент в число.
     const [hoursX, minutesX, secondsX] = x.split(":").map(Number);
     const [hoursY, minutesY, secondsY] = y.split(":").map(Number);
 
+    // Вычисляем разницу в часах, минутах и секундах между временами x и y.
     const deltaHours = hoursY - hoursX;
     const deltaMinutes = minutesY - minutesX;
     const deltaSeconds = secondsY - secondsX;
 
+    // Вычисляем общее количество секунд, учитывая разницу в часах, минутах и секундах.
     const totalSeconds = deltaHours * 3600 + deltaMinutes * 60 + deltaSeconds;
 
     return totalSeconds;

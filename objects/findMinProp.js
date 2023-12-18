@@ -5,12 +5,17 @@
  */
 
 function findMinProp(obj) {
+    // Инициализация переменных для хранения имени свойства и минимального значения
     let minProp = null;
+    // Используем бесконечность в качестве начального значения, которое будет меньше любого числового свойства объекта.
     let minValue = Infinity;
 
     for (const prop in obj) {
+        // Проверка, является ли свойство собственным свойством объекта и числовым
         if (obj.hasOwnProperty(prop) && typeof obj[prop] === "number") {
+            // Сравнение текущего числового значения со значением minValue
             if (obj[prop] < minValue) {
+                // Если текущее значение меньше, обновляем minProp и minValue
                 minProp = prop;
                 minValue = obj[prop];
             }

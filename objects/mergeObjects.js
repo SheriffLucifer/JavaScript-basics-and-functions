@@ -16,7 +16,7 @@ function mergeObjects(obj1, obj2) {
         }
     }
 
-    // Копируем или добавляем свойства из второго объекта
+    // Копируем свойства из второго объекта
     for (const prop in obj2) {
         if (obj2.hasOwnProperty(prop)) {
             result[prop] = obj2[prop];

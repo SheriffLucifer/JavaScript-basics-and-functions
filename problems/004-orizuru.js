@@ -21,28 +21,8 @@
  */
 
 function computeOrizurus(total) {
-    // Рассчитываем значение sum как 66% от total, округляя вверх.
-    let sum = Math.ceil((total / 100) * 66);
-    let p, k, s;
-
-    if (total % 2) {
-        // Вычисляем p как четверть от sum, округленную до ближайшего целого, с вычетом 1.
-        p = Math.round(sum / 4 - 1);
-        // Вычисляем k как sum + 1, округленное до ближайшего целого.
-        k = Math.round(sum + 1);
-        // Вычисляем s как четверть от sum, округленную до ближайшего целого, с вычетом 1.
-        s = Math.round(sum / 4 - 1);
-    } else {
-        // Вычисляем p как четверть от sum, округленную вниз до ближайшего целого.
-        p = Math.floor(sum / 4);
-        // Вычисляем k как sum, округленное до ближайшего целого.
-        k = Math.round(sum);
-        // Вычисляем s как четверть от sum, округленную вниз до ближайшего целого.
-        s = Math.floor(sum / 4);
-    }
-
-    // Создать и вернуть массив с вычисленными значениями
-    return [p, k, s];
+    const half = Math.floor(total / 3 / 2);
+    return [half, total - half * 2, half];
 }
 
 module.exports = computeOrizurus;
